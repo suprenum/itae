@@ -1,0 +1,127 @@
+{% extends 'education/base_education.html' %}
+
+
+{% block title %}
+	{{ program.title|title }} – {{ block.super }}
+{% endblock %}
+
+
+{% block intro %}
+	<h1 class="intro__title">{{ program.title|title }}</h1>
+{% endblock %}
+
+
+{% block content %}
+
+	<!-- =======================================================
+	Educational Program
+	============================================================ -->
+
+	<div class="row">
+		<div class="col-sm-12 col-lg-8">
+
+			<!-- Posts
+			=========================================== -->
+			<div class="card">
+				{% if program.thumbnail %}
+					<img src="{{ program.thumbnail.url }}" class="card-img-top" alt="">
+				{% endif %}
+				<div class="card-body">
+
+					<div class="card-title">{{ program.title }}</div>
+					<p>{{ program.edu_code }}</p>
+
+					<div class="card-text">{{ program.body|linebreaks }}</div>
+				</div>
+			</div><!-- ./card -->
+		</div><!-- ./col-8 -->
+
+		<div class="col-sm-12 col-lg-4">
+			<div class="card mb-4">
+				<div class="card-header">
+					<h5>Period of study</h5>
+				</div>
+				<div class="card-body">
+					<div class="card-title">{{ program.study_period }} years</div>
+				</div>
+			</div><!-- ./card mb-4 -->
+
+			<div class="card mb-4">
+				<div class="card-header">
+					<h5>One academic year includes</h5>
+				</div>
+				<div class="card-body">
+					<div class="card-title">2 semesters</div>
+				</div>
+			</div><!-- ./card mb-4 -->
+
+			{% if program.study_price %}
+				<div class="card">
+					<div class="card-header">
+						<h5>The price of studying</h5>
+					</div>
+					<div class="card-body">
+						<div class="card-title">{{ program.study_price }} тг</div>
+					</div>
+				</div><!-- ./card -->
+			{% endif %}
+		</div><!-- ./col-3 -->
+	</div><!-- ./row -->
+
+
+	<!-- =======================================================
+	The purpose of the EP
+	============================================================ -->
+
+	{% if program.purpose %}
+		<div class="card">
+			<div class="card-body">
+				<div class="card-title">The purpose of the EP</div>
+				<div class="card-text">{{ program.purpose|linebreaks }}</div>
+			</div>
+		</div><!-- ./card -->
+	{% endif %}
+	
+
+	<!-- =======================================================
+	Timetable
+	============================================================ -->
+
+	<div class="card">
+		<div class="card-header">
+		    <h4>Timetable</h4>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-3">
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="v-pills-first-tab" data-toggle="pill" href="#v-pills-first" role="tab" aria-controls="v-pills-first" aria-selected="true">1 курс</a>
+						<a class="nav-link" id="v-pills-second-tab" data-toggle="pill" href="#v-pills-second" role="tab" aria-controls="v-pills-second" aria-selected="false">2 курс</a>
+						<a class="nav-link" id="v-pills-third-tab" data-toggle="pill" href="#v-pills-third" role="tab" aria-controls="v-pills-third" aria-selected="false">3 курс</a>
+						<a class="nav-link" id="v-pills-fourth-tab" data-toggle="pill" href="#v-pills-fourth" role="tab" aria-controls="v-pills-fourth" aria-selected="false">4 курс</a>
+					</div>
+				</div><!-- ./col-3 -->
+				<div class="col-9">
+					<div class="tab-content" id="v-pills-tabContent">
+						<div class="tab-pane fade show active" id="v-pills-first" role="tabpanel" aria-labelledby="v-pills-first-tab">
+							<a href="#"><h5 class="smaller-title">Название pdf файла с расписанием</h5></a>
+							<a href="#"><h5 class="smaller-title">pdf файл с расписанием</h5></a>
+							<a href="#"><h5 class="smaller-title">pdf файл с расписанием</h5></a>
+							<a href="#"><h5 class="smaller-title">pdf файл с расписанием</h5></a>
+						</div>
+						<div class="tab-pane fade" id="v-pills-second" role="tabpanel" aria-labelledby="v-pills-second-tab">
+							<a href="#"><h5 class="smaller-title">2 Название pdf файла с расписанием</h5></a>
+						</div>
+						<div class="tab-pane fade" id="v-pills-third" role="tabpanel" aria-labelledby="v-pills-third-tab">
+							<a href="#"><h5 class="smaller-title">There's no any content</h5></a>
+						</div>
+						<div class="tab-pane fade" id="v-pills-fourth" role="tabpanel" aria-labelledby="v-pills-fourth-tab">
+							<a href="#"><h5 class="smaller-title">Timetable</h5></a>
+						</div>
+					</div>
+				</div><!-- ./col-9 -->
+			</div><!-- ./row -->
+		</div><!-- ./card-body -->
+	</div><!-- ./card -->
+
+{% endblock %}

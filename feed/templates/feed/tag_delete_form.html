@@ -1,0 +1,29 @@
+{% extends 'feed/base_feed.html' %}
+
+
+{% block title %}
+	Delete tag – {{ block.super }}
+{% endblock %}
+
+
+{% block intro %}
+	<h1 class="display-3">Delete the Tag</h1>
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="col-sm-12">
+		<form action="{{ tag.get_delete_url }}" method="post">
+			{% csrf_token %}
+			
+			<h3 class="text-center mb-4">Are you sure you want to delete this "{{ tag.title|title }}" tag?</h3>
+
+			<div class="d-flex justify-content-center">
+				<a href="{{ tag.get_absolute_url }}" class="btn btn-outline-primary mr-2">Cancel</a>
+				<button type="submit" class="btn btn-outline-danger">Delete</button>
+			</div>
+		</form>
+	</div>
+	
+{% endblock %}

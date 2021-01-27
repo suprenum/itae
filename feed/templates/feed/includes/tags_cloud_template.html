@@ -1,0 +1,21 @@
+<div class="col-sm-12 col-lg-4">
+
+	<div class="card">
+		<div class="card-header">
+			<h5>Tags Cloud<h5>
+		</div>
+		<div class="card-body">
+			<ul>
+				{% for tag in tags %}
+	                <li>
+	                    <a href="{{ tag.get_absolute_url }}" class="obj-link d-flex">
+	                        <p>{{ tag.title }}</p>
+	                    </a>
+	                </li>
+	            {% endfor %}
+	        </ul>
+		</div>
+	</div>
+	
+	{% include 'feed/includes/admin_panel_template.html' %}
+</div>

@@ -1,0 +1,29 @@
+{% extends 'feed/base_feed.html' %}
+
+
+{% block title %}
+	Update tag – {{ block.super }}
+{% endblock %}
+
+
+{% block intro %}
+	<h1 class="display-3">Update the Tag</h1>
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="col-sm-12">
+		<form action="{{ tag.get_update_url }}" method="post">
+			{% csrf_token %}
+
+			{% include 'feed/includes/form_template.html' %}
+			
+			<div class="form__btn">
+				<a href="{{ tag.get_absolute_url }}" class="btn btn-outline-primary mr-2">Cancel</a>
+				<button type="submit" class="btn btn-outline-success">Update</button>
+			</div>
+		</form>
+	</div>
+	
+{% endblock %}

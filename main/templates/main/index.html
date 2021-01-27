@@ -1,0 +1,92 @@
+{% extends 'education/base_education.html' %}
+
+
+{% block title %}
+	{{ block.super }}
+{% endblock %}
+
+
+{% block intro %}
+	<h1 class="intro__title">Information Technologies and Engineering</h1>
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="card mb-5">
+		<img src="https://cdn.pixabay.com/photo/2018/11/16/18/09/macbook-3819973_1280.jpg" class="card-img-top" alt="">
+		<div class="card-body">
+			<div class="card-title">
+				Welcome to IT!
+			</div>
+			<div class="card-text">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Orci eu lobortis elementum nibh tellus molestie nunc. Volutpat ac tincidunt vitae semper. Viverra tellus in hac habitasse platea dictumst vestibulum. Vulputate ut pharetra sit amet aliquam. Massa ultricies mi quis hendrerit dolor magna eget est lorem. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Lacus luctus accumsan tortor posuere. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Id interdum velit laoreet id. At varius vel pharetra vel turpis.</p>
+
+			</div>
+		</div>
+	</div><!-- ./card -->
+
+
+
+	<!-- =======================================================
+	Recent News
+	============================================================ -->
+	
+	<div class="card mb-4">
+		<div class="row justify-content-between align-items-center">
+			<div class="col-auto mr-auto">
+				<div class="card-body">
+					<h4>Recent News</h4>
+				</div>
+			</div>
+
+			<div class="col-auto">
+				<div class="card-body">
+					<a href="{% url 'news_list_url' %}" class="btn btn-outline-primary">Read All News</a>
+				</div>
+			</div>
+		</div><!-- ./row justify-content-between align-items-center -->
+	</div><!-- ./card -->
+
+
+	<div class="my_card_deck mb-5">
+		{% for post in posts %}
+			<div class="card">
+				{% if post.thumbnail %}
+					<a href="{{ post.get_absolute_url }}">
+						<img src="{{ post.thumbnail.url }}" class="card-img-top" alt="">
+					</a>
+				{% endif %}
+				<div class="card-body">
+					<a href="{{ post.get_absolute_url }}"><h5 class="smaller-title">{{ post.title }}</h5></a>
+					<p class="card-text"><small class="text-muted">{{ post.pub_date }}</small></p>
+				</div>
+			</div>	
+		{% endfor %}
+	</div><!-- ./my_card_deck -->
+
+
+
+	<!-- =======================================================
+	About 
+	============================================================ -->
+	
+	<div class="card mb-2">
+		<div class="card-header">
+			<h4>A little about us</h4>
+		</div>
+		<div class="card-body">
+			<div class="card-text">
+				<p>At present, it is difficult to imagine the modern world without information technologies, which every year are increasingly being introduced into all spheres of human activity. That is why the mission of the Faculty of Information Technology and Engineering is to train qualified and competitive specialists capable of making competent decisions in the most difficult situations, leaders and workers in demand in the labor market.</p>
+				<p>Research work will be carried out not only by teachers, but also by students of the faculty. Students will take part in international, domestic and intra-university scientific conferences and exhibitions, and will publish articles. The faculty cooperates with the Tomsk Polytechnic University.</p>
+				<p>We are always glad to see you at our faculty of purposeful and ambitious young people, aimed at obtaining high-quality prestigious higher education, open to discussions and full-fledged dialogue.</p>
+				<p>We are always glad to see you at our faculty of purposeful and ambitious young people, aimed at obtaining high-quality prestigious higher education, open to discussions and full-fledged dialogue.</p>
+				<p>Yours faithfully, Dean of the Faculty of ITI, <a href="{{ member.get_absolute_url }}">Abdildaeva Asel Asylbekovna</a>!</p>
+
+			</div>
+		</div>
+	</div><!-- ./card -->
+
+
+{% endblock %}

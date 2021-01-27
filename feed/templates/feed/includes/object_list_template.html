@@ -1,0 +1,16 @@
+<div class="col-sm-12 col-lg-8">
+	{% if page.object_list.exists %}
+
+		{% for post in page.object_list %}
+			{% include 'feed/includes/post_card_template.html' %}
+		{% endfor %}
+		
+
+		{% include 'feed/includes/pagination_template.html' %}
+		
+	{% else %}
+		<h3>There's no any content</h3>
+	{% endif %}
+</div>
+
+{% include 'feed/includes/tags_cloud_template.html' %}

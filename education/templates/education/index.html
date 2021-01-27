@@ -1,0 +1,148 @@
+{% extends 'education/base_education.html' %}
+
+
+{% block title %}
+	Education – {{ block.super }}
+{% endblock %}
+
+
+{% block intro %}
+	<h1 class="intro__title">Information Technologies and Engineering</h1>
+	<h1 class="display-3">Education</h1>
+{% endblock %}
+
+
+{% block content %}
+
+	<!-- =======================================================
+	Undergraduate | Master | PhD
+	============================================================ -->
+
+	<div class="card">
+		<div class="card-body">
+			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+				<li class="nav-item" role="presentation">
+					<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Undergraduate</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Master</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">PhD</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="pills-tabContent">
+
+				<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+					<div class="row row-cols-1 row-cols-md-2">
+						{% for program in programs %}
+							{% if program.academic_key == '6B' %}
+								<div class="col">
+									<div class="card card_academics">
+										<div class="card-body">
+											<a href="{{ program.get_undergraduate_url }}"><h5 class="smaller-title">{{ program.title }}</h5></a>
+											<a href="{{ program.get_undergraduate_url }}" class="btn btn-outline-primary">{{ program.edu_code }}</a>
+										</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div><!-- ./row row-cols-1 row-cols-md-2 -->
+				</div><!-- ./tab-pane fade show active -->
+
+				<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<div class="row row-cols-1 row-cols-md-2">
+						{% for program in programs %}
+							{% if program.academic_key == '7M' %}
+								<div class="col">
+									<div class="card card_academics">
+										<div class="card-body">
+											<a href="{{ program.get_master_url }}"><h5 class="smaller-title">{{ program.title }}</h5></a>
+											<a href="{{ program.get_master_url }}" class="btn btn-outline-primary">{{ program.edu_code }}</a>
+										</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div><!-- ./row row-cols-1 row-cols-md-2 -->
+				</div><!-- ./tab-pane fade -->
+
+				<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+					<div class="row row-cols-1 row-cols-md-2">
+						{% for program in programs %}
+							{% if program.academic_key == '8D' %}
+								<div class="col">
+									<div class="card card_academics">
+										<div class="card-body">
+											<a href="{{ program.get_phd_url }}"><h5 class="smaller-title">{{ program.title }}</h5></a>
+											<a href="{{ program.get_phd_url }}" class="btn btn-outline-primary">{{ program.edu_code }}</a>
+										</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div><!-- ./row row-cols-1 row-cols-md-2 -->
+				</div><!-- ./tab-pane fade -->
+
+			</div><!-- ./tab-content -->
+		</div><!-- ./card-body -->
+	</div><!-- ./card -->
+
+
+	<!-- =======================================================
+	About 
+	============================================================ -->
+	
+	<div class="card">
+		<div class="card-header">
+			<h4>About Us</h4>
+		</div>
+		<div class="card-body">
+			<div class="card-text">
+				<p>The faculty was organized in 2019 and includes the most experienced specialists in the field. The faculty has 2 doctors, 7 PhDs and 5 candidates of sciences.</p>
+				<p>The educational process at the faculty will be carried out on a full-time basis, both on a budgetary and on a contract basis, for the preparation of undergraduates and bachelors in the direction of Information and Communication Technologies. Licensing was obtained in this area.</p>
+				<p>The faculty has modern teaching and laboratory and research classrooms, multimedia equipment, and will also constantly increase computer and educational equipment.</p>
+				<p>Research work will be carried out not only by teachers, but also by students of the faculty. Students will take part in international, domestic and intra-university scientific conferences and exhibitions, and will publish articles. The faculty cooperates with the Tomsk Polytechnic University.</p>
+			</div>
+		</div>
+	</div><!-- ./card -->
+
+
+	<!-- =======================================================
+	Recent News
+	============================================================ -->
+	
+	<div class="card">
+		<div class="row justify-content-between align-items-center">
+			<div class="col-auto mr-auto">
+				<div class="card-body">
+					<h4>Recent News</h4>
+				</div>
+			</div>
+
+			<div class="col-auto">
+				<div class="card-body">
+					<a href="{% url 'news_list_url' %}" class="btn btn-outline-primary">Read All News</a>
+				</div>
+			</div>
+		</div><!-- ./row justify-content-between align-items-center -->
+	</div><!-- ./card -->
+
+
+	<div class="my_card_deck">
+		{% for post in posts %}
+			<div class="card">
+				{% if post.thumbnail %}
+					<a href="{{ post.get_absolute_url }}">
+						<img src="{{ post.thumbnail.url }}" class="card-img-top" alt="">
+					</a>
+				{% endif %}
+				<div class="card-body">
+					<a href="{{ post.get_absolute_url }}"><h5 class="smaller-title">{{ post.title }}</h5></a>
+					<p class="card-text"><small class="text-muted">{{ post.pub_date }}</small></p>
+				</div>
+			</div>	
+		{% endfor %}
+	</div><!-- ./my_card_deck -->
+
+{% endblock %}

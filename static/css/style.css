@@ -1,0 +1,432 @@
+body {
+	background-color: #edeef0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #6c7279;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+
+
+
+/* Page =============================================
+=====================================================*/
+
+.page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+
+
+/* Navigation =======================================
+=====================================================*/
+
+#navbar {
+	background-color: #051D35;
+}
+
+.nav-link {
+	font-size: 16px
+}
+
+
+/* IT & E 	title in navbar
+===========================*/
+
+#logo-title {
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	opacity: 0.75;
+}
+
+#logo-title:hover {
+	opacity: 1;
+}
+
+
+
+
+/* Intro ============================================
+=====================================================*/
+
+.intro {
+	width: 100%;
+	background-color: #f7f8fa;
+}
+
+.intro__inner {
+	padding: 176px 0 100px;
+	text-align: center;
+	color: #072a4d;
+}
+
+.intro__search {
+	font-size: 24px;
+}
+
+
+
+
+/* Forms ============================================
+=====================================================*/
+
+.form-control {
+	border: none;
+	border-radius: 0.5rem;
+}
+
+.form-inline .form-control {
+	border-radius: 0.5rem 0 0 0.5rem;
+}
+
+
+
+/* Content | Card ===================================
+=====================================================*/
+
+.content {
+	margin: 50px 0;
+}
+
+.card {
+	margin-bottom: 40px;
+
+	border: none;
+	border-radius: 0.75rem;
+}
+
+.card_academics {
+	margin-bottom: 0;
+}
+
+.card-header {
+	border-bottom: none;
+}
+
+.card-header:first-child {
+	border-radius: calc(.75rem - 1px) calc(.75rem - 1px) 0 0;
+}
+
+.card-body {
+	padding: 2.25rem;
+}
+
+.card-title {
+	font-size: 28px;
+	line-height: 1.2;
+	color: #072a4d;
+}
+
+.smaller-title {
+	margin-bottom: .75rem;
+	color: #072a4d;
+}
+
+.card-img-top {
+	border-radius: calc(.75rem - 1px) calc(.75rem - 1px) 0 0;
+}
+
+.card > .list-group:last-child{
+	border-radius: 0 0 calc(.75rem - 1px) calc(.75rem - 1px);
+}
+
+
+
+
+/* Buttons ==========================================
+=====================================================*/
+
+.btn {
+	border-radius: 0.5rem;
+}
+
+.form-inline .btn {
+	border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.nav-pills .nav-link {
+	border-radius: 0.5rem;
+}
+
+
+
+
+/* Pagination =======================================
+=====================================================*/
+
+.pagination {
+	margin-bottom: 0;
+}
+
+
+
+
+/* Admin Panel | links ==============================
+=====================================================*/
+
+#admin-link {
+	color: #17a2b8;
+}
+
+#create-link {
+	color: #0b4178;
+}
+
+#update-link {
+	color: #0b4178;
+}
+
+#delete-link {
+	color: #dc3545;
+}
+
+
+.post_link {
+	color: #072a4d;
+}
+
+.post_link:hover {
+	text-decoration: none;
+	color: #0056b3;
+}
+
+.tag-link {
+	margin-bottom: 10px;
+}
+
+.obj-link {
+	text-decoration: none;
+	margin-bottom: 10px; 
+}
+
+/* Footer ===========================================
+=====================================================*/
+
+.footer {
+	margin-top: auto;
+	background-color: #051D35;
+}
+
+.footer__inner {
+	padding: 50px 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	color: #fff;
+}
+
+.footer__inner a {
+	margin-bottom: 5px;
+	color: #fff;
+	text-decoration: none;
+	opacity: 0.75;
+
+	transition: opacity 0.1s linear;
+}
+
+.footer__inner a:hover {
+	opacity: 1;
+}
+
+.footer__block {
+	width: 33.33333%;
+	padding: 0 15px;
+
+	text-align: center;
+}
+
+.footer__text {
+	opacity: 0.75;
+}
+
+
+
+
+/* Media ===========================================
+=====================================================*/
+
+@media (min-width: 991px) {
+
+	/* Card Deck */
+	.my_card_deck {
+		display: flex;
+		flex-flow: row wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+
+	.my_card_deck .card {
+		flex: 1 0 0%;
+		margin: 0 15px;
+	}
+}
+
+
+@media (max-width: 991px) {
+
+	/* Navigation */
+	.navbar-brand {
+		margin-right: 0;
+	}
+
+
+	/* Block Intro */
+	.intro__title {
+		font-size: 32px;
+	}
+	
+	.intro__search {
+		font-size: 20px;
+	}
+
+	.display-3 {
+		font-size: 60px;
+	}
+
+
+	/* Pagination */
+	.pagination {
+		margin-bottom: 40px;
+		justify-content: center;
+	}
+}
+
+
+@media (max-width: 767px) {
+
+	/* Block Intro */
+	.intro__inner {
+		padding: 146px 0 70px;
+	}
+
+	.intro__title {
+		font-size: 25px;
+	}
+	
+	.intro__search {
+		font-size: 18px;
+	}
+
+	.display-3 {
+		font-size: 50px;
+	}
+
+	
+	/* Content | Card*/
+	.content {
+		margin: 35px 0;
+	}
+	
+	.card {
+		margin-bottom: 30px;
+	}
+	
+	.card-body {
+		padding: 1.75rem;
+	}
+
+	.card-title {
+		font-size: 25px;
+	}
+
+
+	/* Pagination */
+	.pagination {
+		margin-bottom: 30px;
+	}
+
+
+	/* Buttons in form tag */
+	.form__btn {
+		display: flex;
+		justify-content: center;
+	}
+
+
+	/* Footer */
+	.footer__inner {
+		padding: 30px 0;
+	}
+
+	.footer__block {
+		margin-bottom: 30px;
+		padding-left: 0;
+		padding-right: 0;
+
+		width: 100%;
+	}
+	
+	.footer__block:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+@media (max-width: 575px) {
+
+	/* Block Intro */
+	.intro__inner {
+		padding: 126px 0 50px;
+	}
+
+	.intro__title {
+		font-size: 20px;
+	}
+	
+	.intro__search {
+		font-size: 16px;
+	}
+
+	.display-3 {
+		font-size: 40px;
+	}
+
+
+	/* Content | Card*/
+	.content {
+		margin: 30px 0;
+	}
+	
+	.card {
+		margin-bottom: 25px;
+	}
+
+	.card-title {
+		font-size: 20px;
+	}
+
+	/* Form Control */
+	.form-inline .form-control {
+		border-radius: 0.5rem;
+	}
+
+	.form-inline .btn {
+		border-radius: 0.5rem;
+	}
+}
+
+
+@media (max-width: 425px) {
+
+	/* Content | Card*/
+	.card-body {
+		padding: 1.25rem;
+	}
+}

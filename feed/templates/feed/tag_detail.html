@@ -1,0 +1,16 @@
+{% extends 'feed/base_feed.html' %}
+
+
+{% block title %}
+	{{ tag.title|title }} – {{ block.super }}
+{% endblock %}
+
+
+{% block intro %}
+	<h1 class="intro__title">{{ tag.title|title }}</h1>
+{% endblock %}
+
+
+{% block content %}
+	{% include 'feed/includes/object_list_template.html' %}
+{% endblock %}
